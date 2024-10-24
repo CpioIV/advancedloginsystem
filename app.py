@@ -4,16 +4,21 @@ from login import login
 def main():
     print("1. Sign Up")
     print("2. Log In")
-    choice = input("Choose an option: ")
+    option = input("Choose an option: ")
 
-    if choice == "1":
+    if option == "1":
         username = input("Enter username: ")
-        sign_up(username)
-    elif choice == "2":
+        password = input("Enter password: ")
+        try:
+            sign_up(username, password)
+        except ValueError as e:
+            print(f"Error during sign-up: {e}")
+    elif option == "2":
         username = input("Enter username: ")
-        login(username)
+        password = input("Enter password: ")
+        login(username, password)
     else:
-        print("Invalid choice")
+        print("Invalid option. Please try again.")
 
 if __name__ == "__main__":
     main()
